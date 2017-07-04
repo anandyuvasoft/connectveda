@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: password
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: connect-lifes_development
+
+test:
+  <<: *default
+  database: connect-lifes_test
+  
+production:
+  <<: *default
+  database: connect-lifes_production
+  username: connect-lifes
+  password: <%= ENV['OMNICOST_DATABASE_PASSWORD'] %>
