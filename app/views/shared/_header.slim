@@ -1,0 +1,14 @@
+nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      a.navbar-brand[href="/"]
+        | Connectvida
+    ul.nav.navbar-nav.navbar-right
+      li
+        = link_to new_user_registration_path do
+          span.glyphicon.glyphicon-user
+          |  Sign Up
+      li
+        = link_to new_user_session_path do
+          span.glyphicon.glyphicon-log-in
+          |  Login
