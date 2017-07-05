@@ -3,7 +3,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable , :omniauthable, :omniauth_providers => [:facebook]
          # :confirmable
+  validates_presence_of :first_name, :last_name
 
+    BLOOD_GROUP = ["A+", "B+", "O+", "O-"]
     def self.from_omniauth(auth, type)
     user = User.where(:email => auth.info.email).first
 
@@ -20,4 +22,5 @@ class User < ApplicationRecord
       end
     end
   end
+
 end
