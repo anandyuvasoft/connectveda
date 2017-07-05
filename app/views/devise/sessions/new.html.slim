@@ -2,6 +2,8 @@
   .panel.panel-default
     .panel-heading
       | Log in
+    = link_to "/users/auth/facebook" do
+      = image_tag("/assets/facebook_continue.jpg")
     .panel-body
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
