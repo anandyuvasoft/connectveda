@@ -16,12 +16,6 @@ html
   body
     = render 'shared/header'
     = render 'shared/message'
-    - if user_signed_in?
-      li
-        = link_to('Logout', destroy_user_session_path, method: :delete)
-    - else
-      li
-        = link_to('Login', new_user_session_path)
     main
      .col-md-offset-1.col-md-10
        = yield
