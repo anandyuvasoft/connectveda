@@ -20,11 +20,13 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 gem 'omniauth-facebook'
+gem 'omniauth'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'font-awesome-sass', '~> 4.7.0'
+gem 'font-awesome-sass'
 gem 'slim-rails'
 gem 'geocoder'
-
+gem 'gmaps4rails'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -42,7 +44,10 @@ group :test do
   gem 'spring-commands-rspec'
   gem 'webmock'
   gem 'database_cleaner'
-  gem 'rspec-rails', '~> 3.6'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'rspec-retry'
   gem 'shoulda-matchers'
   gem 'capybara'
@@ -51,3 +56,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'devise-bootstrap-views'
