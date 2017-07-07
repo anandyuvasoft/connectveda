@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable , :omniauthable, :omniauth_providers => [:facebook]
          # :confirmable
   validates_presence_of :first_name, :last_name
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
     BLOOD_GROUP = ["A+", "B+", "O+", "O-"]
     def self.from_omniauth(auth, type)

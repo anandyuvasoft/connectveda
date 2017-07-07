@@ -3,24 +3,40 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  it "has a valid factory" do
-    #person = FactoryGirl.build(:person) it is also valid
-    expect(FactoryGirl.build(:user)).to be_valid
+  it "for successfully create user" do
+    user = build(:user)
+    expect(user).to be_valid
   end
 
-  # it "is invalid without a name" do
-  #   user = FactoryGirl.build(:user, name: nil)
-  #   expect(user).not_to be_valid
-  # end
+  it "is not valid without first name" do
+    user = build(:user, first_name:nil)
+    expect(user).to_not be_valid
+  end
 
-  # it "is invalid without an age" do
-  #   user = FactoryGirl.build(:user, age: nil)
-  #   expect(user).not_to be_valid
-  # end
+  it "is not valid without last name" do
+    user = build(:user, last_name:nil)
+    expect(user).to_not be_valid
+  end
 
-  # it "returns a person's identifier as a string" do
-  #   user = FactoryGirl.build(:user, name: "Johnny", age: 12)
-  #   expect(user.identifier).to eq("Johnny 12")
-  # end
+  it "is not valid without email" do
+    user = build(:user, email:nil)
+    expect(user).to_not be_valid
+  end
+
+  it "it's valid with phone" do
+    user = build(:user, phone:nil)
+    expect(user).to be_valid
+  end
+
+  it "is not valid without password & password_confirmation" do
+    user = build(:user, password:nil, password_confirmation:nil)
+    expect(user).to_not be_valid
+  end
+
+  it "For valid email format" do
+    user = build(:user, email:"abc.com")
+    expect(user).to_not be_valid
+  end
 end
+
 
